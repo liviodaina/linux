@@ -7,4 +7,4 @@ openvpn3 session-start --config profile-266.ovpn
 openvpn3 sessions-list
 openvpn3 session-manage --disconnect -o /net/openvpn/v3/sessions/76305c9es4274s4b60sa007sd456868c36aa
 .
-
+prova modifica inplace
