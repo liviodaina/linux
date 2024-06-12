@@ -11,6 +11,8 @@ prova modifica inplace
 ----
 openvpn3_dev.repo
 
+https://copr.fedorainfracloud.org/coprs/ojab/openvpn3/
+
 livio@fed10:~/opevpn$ cat /etc/yum.repos.d/openvpn3_dev.repo 
 [copr:copr.fedorainfracloud.org:dsommers:openvpn3-devsnapshots]
 name=Copr repo for openvpn3-devsnapshots owned by dsommers
