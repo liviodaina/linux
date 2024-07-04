@@ -1,0 +1,27 @@
+se nextcloud
+select * from oc_storages;
+select * from oc_storages where id like '%rootte%';
+delete from oc_storages where numeric_id = 371;
+select count(*), storage from oc_filecache group by storage order by storage asc;
+GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'root'@'cl1e018.imetec.it';
+
+CREATE USER 'remoteusertenacta'@'cl1e018.imetec.it' IDENTIFIED BY 'ergot2020sql';
+GRANT ALL PRIVILEGES ON *.* TO 'remoteusertenacta'@'cl1e018.imetec.it';
+FLUSH PRIVILEGES;
+delete from oc_filecache where `storage` = 371 and fileid > 78000000;
+delete from oc_filecache where `storage` = 371 and fileid < 18000000;
+
+
+enable external_files app (was removed earlier due to performance issues)
+remove all configured storages
+some external storages are still listed in oc_storages table
+review this records
+select * from oc_storages where id like 'smb:%'
+review this records
+delete from oc_storages where id like 'smb:%'
+run occ files:cleanup
+as a result it removed 160k stale records from file cache.
+
+running ALTER TABLE oc_filecache FORCE;
+returned free space as described here 85
+
